@@ -51,7 +51,7 @@ class RegisterController extends Controller
             'firstName'     =>      array('required','min:2','regex:/^[A-ZĄĘĆŚŃŁÓŻŹ][a-ząęćśńłóżź]*$/','string','max:255'),
             'lastName'      =>      array('required','min:2','regex:/^[A-ZĄĘĆŚŃŁÓŻŹ][a-ząęćśńłóżź]*$/','string','max:255'),
             'email'         =>      'required|string|email|max:255|unique:users',
-            'password'      =>      array('required','string','min:6'.'confirmed','regex:/^(\w|!@#\$%\^&\*)+$/'),
+            'password'      =>      array('required','string','min:6'.'confirmed','regex:/^(\w|!@#\$%\^&\*|ĄĘĆŚŃŁÓŻŹąęćśńłóżź)+$/'),
             'country'       =>      'required|string',
             'accept'        =>      'accepted',
         ]);
