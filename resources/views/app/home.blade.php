@@ -17,14 +17,14 @@
             <h2>Moja praca</h2>
             <p>{{$work->name}}</p>
 
-            {{'', $frends = $work->users->reject(function($author) use ($user){return $author->id == $user->id;})}}
-            @if($frends->count() > 0)
-                <h2>Współautorzy</h2>
+            {{--{{'', $frends = $work->users->reject(function($author) use ($user){return $author->id == $user->id;})}}--}}
+            {{--@if($frends->count() > 0)--}}
+                {{--<h2>Współautorzy</h2>--}}
 
-                @foreach($frends as $frend)
-                    <p>{{$frend->firstName.' '.$frend->lastName}}</p>
-                @endforeach
-            @endif
+                {{--@foreach($frends as $frend)--}}
+                    {{--<p>{{$frend->firstName.' '.$frend->lastName}}</p>--}}
+                {{--@endforeach--}}
+            {{--@endif--}}
         @endforeach
     @endif
 </div>
