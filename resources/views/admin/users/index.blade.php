@@ -32,7 +32,7 @@
                                 <button type="submit"
                                         class="dropdown-item">{{$user->isActive()?"Dezaktywuj":"Aktywuj"}}</button>
                             </form>
-                            <a class="dropdown-item" href="#"></a>
+                            <a class="dropdown-item" href="{{route('users.edit', $user->id)}}">Edytuj</a>
                             <div class="dropdown-divider"></div>
                             <form action="{{route('users.flipAdmin', $user->id)}}" method="post">
                                 {{csrf_field()}}

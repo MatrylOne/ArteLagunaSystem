@@ -35,6 +35,37 @@ class UserController extends Controller
     }
 
     /**
+     * Shows user edit
+     *
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(User $user)
+    {
+        return view("admin.users.edit", ['user' => $user]);
+    }
+
+    /**
+     * Updates user email
+     *
+     * @param Request $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, User $user)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|string|email|min:3',
+        ]);
+
+        $user->email = $validatedData['email'];
+        $user->save();
+        return redirect()->route('users.index');
+
+
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -65,7 +96,6 @@ class UserController extends Controller
         }
         return back();
     }
-
 
     /**
      * Destroys given user

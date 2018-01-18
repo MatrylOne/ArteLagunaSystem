@@ -35,6 +35,6 @@ Route::group(['middleware' => 'admin'], function()
     Route::patch('admin/users/{user}/flipUser', 'UserController@flipActive')->name('users.flipActive');
     Route::patch('admin/users/{user}/flipAdmin', 'UserController@flipAdmin')->name('users.flipAdmin');
     Route::resource('admin/users', 'UserController', ['except' => [
-        'create', 'edit', 'update'
+        'create'
     ]]);
 });
