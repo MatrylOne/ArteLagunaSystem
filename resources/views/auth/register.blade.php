@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('inc.jumbotron')
 
     <!--FormularzRejestracji-->
-    <div class="container mb-4">
+    <div class="container mb-4 mt-5">
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <form method="POST" action="{{ route('register') }}">

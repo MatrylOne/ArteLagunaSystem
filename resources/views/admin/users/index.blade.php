@@ -3,9 +3,8 @@
 @section('content')
 
     @include('inc.admin-navigation')
-    @include('inc.jumbotron')
 
-    <table class="table">
+    <table class="table mt-4">
         <thead>
         <tr>
             <th scope="col"></th>
@@ -22,7 +21,7 @@
                 <th scope="row">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Action
+                                aria-haspopup="true" aria-expanded="false">Opcje
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{route('users.show', $user->id)}}">Pokaż</a>

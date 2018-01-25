@@ -3,6 +3,7 @@
 @section('content')
 @section('jumbo-title', 'Wyświetlanie użytkownika')
 @section('jumbo-description', $user->firstName.' '.$user->lastName)
+@include('inc.admin-navigation')
 @include('inc.jumbotron')
 
 <div class="container">

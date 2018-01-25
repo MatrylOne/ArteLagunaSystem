@@ -15,7 +15,7 @@
             <input type="email" name="email" class="form-control" value="{{$user->email}}">
         </div>
         <div class="col-sm-2 text-center">
-            <button class="btn btn-primary" type="submit">Zmień adres</button>
+            <button class="btn btn-primary" type="submit">Zmień</button>
         </div>
     </div>
 </form>

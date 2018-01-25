@@ -7,7 +7,7 @@
     {{csrf_field()}}
     {{method_field('PATCH')}}
     <div class="form-row">
-        <div class="col">
+        <div class="col-sm-10">
             <select name="work" class="form-control" id="exampleFormControlSelect1">
                 <optgroup label="Prace">
                     @foreach($works->filter(function($work){return $work->award == null;}) as $work)
@@ -19,7 +19,7 @@
                 </optgroup>
             </select>
         </div>
+        <div class="col-sm-2"><button class="btn btn-primary" type="submit">Przyznaj</button></div>
     </div>
-    <button type="submit">Dodaj</button>
 </form>
 @endsection

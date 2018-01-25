@@ -2,9 +2,7 @@
 @section('content')
 
     @include('inc.admin-navigation')
-    @include('inc.jumbotron')
-
-    <a href="{{route('awards.create')}}" class="btn btn-primary mb-4">+</a>
+    <a href="{{route('awards.create')}}" class="btn btn-primary mt-5 mb-4">+</a>
 
     @foreach($awards->groupBy(function($item){return $item->category->edition_id;})->reverse() as $awardsGroup)
         @if(count($awardsGroup)>0)
@@ -27,7 +25,7 @@
                         <th scope="row">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-primary btn-sm dropdown-toggle"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opcje
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{route('awards.show', $award->id)}}">Pokaż</a>
