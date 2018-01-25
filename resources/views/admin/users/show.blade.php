@@ -1,39 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-
 @section('jumbo-title', 'Wyświetlanie użytkownika')
-
-@include('inc.admin-navigation')
+@section('jumbo-description', $user->firstName.' '.$user->lastName)
 @include('inc.jumbotron')
 
+<div class="container">
+    @if($user->works->count() > 0)
+        @foreach($user->works as $work)
+            @if($work->award != null)
+                <h2>Moja nagroda</h2>
+                <b>{{$work->award->name}}</b>
+                <p>Miejsce {{$work->award->place}} w kategorii {{$work->award->category->name}} za pracę
+                    "{{$work->name}}"</p>
+            @endif
+            <h2>Praca</h2>
+            <p>{{$work->name}}</p>
+            @php ($frends = $work->users->reject(function($author) use ($user){return $author->id == $user->id;}))
+            @if($frends->count() > 0)
+                <h2>Współautorzy</h2>
 
-<!--FormularzRejestracji-->
-    <div class="container mb-4">
-        <div class="row">
-            <div class="col-lg-6 mx-auto">
-                <div class="form-group">
-                    <label for="firstName">Imię</label>
-                    <input type="text" class="form-control" disabled name="firstName" id="firstName"
-                           value="{{ $user->firstName }}" placeholder="Wpisz imię">
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Nazwisko</label>
-                    <input type="text" class="form-control" disabled name="lastName" id="lastName" value="{{ $user->lastName }}"
-                           placeholder="Wpisz nazwisko">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" disabled name="email" id="email" value="{{ $user->email }}"
-                           placeholder="Wpisz email">
-                </div>
-                <div class="form-group">
-                    <label for="password-confirm">Kraj</label>
-                    <input type="text" class="form-control" disabled name="password_confirmation" id="password-confirm"
-                           value="{{$user->country}}">
-                </div>
-            </div>
-        </div>
-        <!--.FormularzRejestracji-->
-    </div>
+                @foreach($frends as $frend)
+                    <p>{{$frend->firstName.' '.$frend->lastName}}</p>
+                @endforeach
+            @endif
+        @endforeach
+    @endif
+</div>
 @endsection
